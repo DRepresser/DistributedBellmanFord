@@ -1,0 +1,9 @@
+{
+  "node_name": "Node1",
+  "listen_port": 5001,
+  "all_nodes": ["Node1", "Node2", "Node3", "Node4", "Node5"],
+  "neighbors": {
+    "Node2": {"host": "node2", "port": 5002, "weight": 2},
+    "Node3": {"host": "node3", "port": 5003, "weight": 4}
+  }
+}

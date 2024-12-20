@@ -1,0 +1,4 @@
+[2024-12-20 11:34:22] Node5 listening on port 5005...
+[2024-12-20 11:34:23] Received update from Node4: {'Node1': inf, 'Node2': 3, 'Node3': inf, 'Node4': 0, 'Node5': 2}
+[2024-12-20 11:34:23] Updating distance for Node2: old=inf, new=5 (via Node4)
+[2024-12-20 11:34:23] Updated distances: {'Node1': inf, 'Node2': 5, 'Node3': 4, 'Node4': 2, 'Node5': 0}

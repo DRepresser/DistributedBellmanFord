@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  node1:
+    build: .
+    container_name: node1
+    command: ["python", "node.py", "Node1"]
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./logs/Node1:/app/logs
+    networks:
+      - mynet
+
+  node2:
+    build: .
+    container_name: node2
+    command: ["python", "node.py", "Node2"]
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./logs/Node2:/app/logs
+    networks:
+      - mynet
+
+  node3:
+    build: .
+    container_name: node3
+    command: ["python", "node.py", "Node3"]
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./logs/Node3:/app/logs
+    networks:
+      - mynet
+
+  node4:
+    build: .
+    container_name: node4
+    command: ["python", "node.py", "Node4"]
+    ports:
+      - "5004:5004"
+    volumes:
+      - ./logs/Node4:/app/logs
+    networks:
+      - mynet
+
+  node5:
+    build: .
+    container_name: node5
+    command: ["python", "node.py", "Node5"]
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./logs/Node5:/app/logs
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
