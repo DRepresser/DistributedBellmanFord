@@ -79,25 +79,23 @@ def handle_update(conn):
         with distance_lock:
             for node in ALL_NODES:
                 if distances[node] != infinity:
-                    new_distance = distances[node] + neighbor_distances[node]
+                    new_distance = distances[source] + neighbor_distances[node]
                 else:
                     new_distance = distances[source] + neighbor_distances[node]
-                
                 if new_distance < distances[node]:
                     log(f"Updating distance for {node}: old={distances[node]}, new={new_distance} (via {source})")
                     distances[node] = new_distance
                     updated = True
 
-                if updated:
-                    log(f"Updated distances: {distances}")
-                    send_update()
+        if updated:
+            log(f"Distances updated: {distances}")
+            threading.Thread(target=send_update).start()
 
 def main():
     """Start the node."""
     threading.Thread(target=listen_for_updates, daemon=True).start()
     time.sleep(1)
     send_update()
-    log(f"Final distances: {distances}")
     while True:
         time.sleep(10)
 

@@ -5,6 +5,6 @@ WORKDIR /app
 COPY node.py /app/
 COPY config /app/config/
 
-RUN mkdir -p /app/logs
+RUN mkdir -p /app/logs && rm -rf /app/logs/*
 
 CMD ["python", "node.py"]
